@@ -1,0 +1,40 @@
+#!/bin/sh
+
+compile() {
+  if [ $2 ]; then
+    xslt -s:$1 -xsl:/schematron/iso_schematron_skeleton_for_saxon.xsl -o:$2
+  else
+    echo "TODO"
+  fi
+}
+
+expand() {
+  echo "TODO"
+}
+
+filter() {
+  echo "TODO"
+}
+
+help() {
+  echo "Available commands:"
+  echo "* compile"
+  echo "* expand"
+  echo "* filter"
+  echo "* include"
+  echo "* prepare"
+}
+
+include() {
+  echo "TODO"
+}
+
+prepare() {
+  echo "TODO"
+}
+
+if [ $1 ]; then
+  $*
+else
+  help
+fi
