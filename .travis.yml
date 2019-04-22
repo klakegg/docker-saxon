@@ -7,4 +7,6 @@ services:
 
 script:
   - docker build -f Dockerfile -t saxon:base .
-  - docker build -f Dockerfile-full .
+  - docker build -f Dockerfile-full -t saxon:full .
+  - docker run --rm -it saxon:full xslt || true
+  - docker run --rm -it saxon:full xquery || true

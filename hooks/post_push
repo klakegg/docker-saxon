@@ -12,9 +12,9 @@ docker build -t $DOCKER_REPO:$VERSION -f Dockerfile-full .
 docker push $DOCKER_REPO:$VERSION
 
 if [ $SOURCE_BRANCH != "master" ]; then
-  docker tag $DOCKER_REPO:$VERSION $DOCKER_REPO:latest
-  docker push $DOCKER_REPO:latest
-
   docker tag $DOCKER_REPO:$VERSION-base $DOCKER_REPO:latest-base
   docker push $DOCKER_REPO:latest-base
+
+  docker tag $DOCKER_REPO:$VERSION $DOCKER_REPO:latest
+  docker push $DOCKER_REPO:latest
 fi
