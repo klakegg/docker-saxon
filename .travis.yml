@@ -6,4 +6,5 @@ services:
   - docker
 
 script:
-  - docker build .
+  - docker build -f Dockerfile -t saxon:base .
+  - docker build -f Dockerfile-full .

@@ -1,0 +1,10 @@
+FROM saxon:base AS base
+
+
+FROM openjdk:8u201-jre-alpine3.9
+
+COPY --from=base / /
+
+VOLUME /src /target
+
+WORKDIR /src

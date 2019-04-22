@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $SOURCE_BRANCH = "master" ]; then
+  docker tag $DOCKER_REPO:dev-base saxon:base
+else
+  docker tag $DOCKER_REPO:dev-base saxon:base
+  docker tag $DOCKER_REPO:dev-base $DOCKER_REPO:$SOURCE_BRANCH-base
+  docker push $DOCKER_REPO:$SOURCE_BRANCH-base
+fi
+
+docker build -t $DOCKER_REPO:$SOURCE_BRANCH -f Dockerfile-full .
+docker push $DOCKER_REPO:$SOURCE_BRANCH
+
+if [ $SOURCE_BRANCH != "master" ]; then
+  docker tag $DOCKER_REPO:$SOURCE_BRANCH $DOCKER_REPO:latest
+  docker push $DOCKER_REPO:latest
+fi
