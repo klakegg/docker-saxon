@@ -1,5 +1,7 @@
 # Saxon
 
+[![](https://images.microbadger.com/badges/image/klakegg/saxon.svg)](https://microbadger.com/images/klakegg/saxon "Get your own image badge on microbadger.com")
+
 This is a docker image containing [Saxon-HE](http://saxon.sourceforge.net/).
 
 The following commands may be used:
