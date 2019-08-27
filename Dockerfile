@@ -12,6 +12,7 @@ ADD image /image
 RUN echo \
   # Saxon
   && mv /tmp/Saxon-HE-${saxon_ver}.jar /image/saxon.jar \
+  && chmod a+r /image/saxon.jar \
   # Executables
   && chmod a+x /image/bin/* \
   # List content

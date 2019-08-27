@@ -5,6 +5,8 @@ FROM openjdk:8u201-jre-alpine3.9
 
 COPY --from=base / /
 
+RUN chmod a+r /saxon.jar
+
 VOLUME /src /target
 
 WORKDIR /src
