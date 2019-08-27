@@ -1,4 +1,4 @@
-FROM alpine:3.8 AS prepare
+FROM alpine:3.10 AS prepare
 
 ARG saxon_ver=9.9.1-2
 #ARG saxon_ver=9.8.0-15
