@@ -1345,6 +1345,26 @@
     "allPublicMethods" : true
   },
   {
+    "name" : "net.sf.saxon.functions.SuperId$Id",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ],
+    "allDeclaredConstructors" : true,
+    "allPublicConstructors" : true,
+    "allDeclaredMethods" : true,
+    "allPublicMethods" : true
+  },
+  {
+    "name" : "net.sf.saxon.functions.SuperId$ElementWithId",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ],
+    "allDeclaredConstructors" : true,
+    "allPublicConstructors" : true,
+    "allDeclaredMethods" : true,
+    "allPublicMethods" : true
+  },
+  {
     "name" : "net.sf.saxon.functions.SystemFunction",
     "methods": [
       { "name": "<init>", "parameterTypes": [] }
