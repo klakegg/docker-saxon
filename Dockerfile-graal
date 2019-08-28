@@ -1,0 +1,23 @@
+FROM saxon:base AS saxon
+
+
+FROM oracle/graalvm-ce:19.2.0 AS graalvm
+
+COPY graal /src
+COPY --from=saxon /saxon.jar /src/saxon.jar
+
+RUN sh /src/build.sh
+
+
+FROM alpine:3.10 AS tmp
+
+ADD image /image
+
+COPY --from=graalvm /target/bin/saxon /image/bin/saxon
+
+RUN chmod a+x /image/bin/*
+
+
+FROM alpine:3.10
+
+COPY --from=tmp /image /

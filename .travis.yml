@@ -8,6 +8,8 @@ services:
 script:
   - docker build -f Dockerfile -t saxon:base .
   - docker build -f Dockerfile-full -t saxon:full .
+  - docker build -f Dockerfile-graal -t saxon:graal .
   - docker run --rm -it saxon:full xslt || true
   - docker run --rm -it saxon:full xquery || true
-  - docker run --rm -it saxon:full ls -l /
+  - docker run --rm -it saxon:graal xslt || true
+  - docker run --rm -it saxon:full ls -l /saxon.jar

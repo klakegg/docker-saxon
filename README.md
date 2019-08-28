@@ -1,6 +1,7 @@
 # Saxon
 
 [![](https://images.microbadger.com/badges/image/klakegg/saxon.svg)](https://microbadger.com/images/klakegg/saxon "Get your own image badge on microbadger.com")
+[![Build Status](https://travis-ci.org/klakegg/docker-saxon.svg?branch=master)](https://travis-ci.org/klakegg/docker-saxon)
 
 This is a docker image containing [Saxon-HE](http://saxon.sourceforge.net/).
 
