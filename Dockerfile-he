@@ -3,9 +3,7 @@ FROM saxon:base AS base
 
 FROM openjdk:8u212-jre-alpine3.9
 
-COPY --from=base / /
-
-RUN chmod a+r /saxon.jar
+COPY --from=base /he /
 
 VOLUME /src /target
 
