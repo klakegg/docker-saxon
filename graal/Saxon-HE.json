@@ -304,6 +304,16 @@
     "allPublicMethods" : true
   },
   {
+    "name" : "net.sf.saxon.functions.ContextItemAccessorFunction$StringAccessor",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ],
+    "allDeclaredConstructors" : true,
+    "allPublicConstructors" : true,
+    "allDeclaredMethods" : true,
+    "allPublicMethods" : true
+  },
+  {
     "name" : "net.sf.saxon.functions.CopyOfFn",
     "methods": [
       { "name": "<init>", "parameterTypes": [] }
