@@ -10,7 +10,7 @@ ADD \
 RUN mv /tmp/Saxon-HE-${saxon_ver}.jar /saxon.jar
 
 
-FROM oracle/graalvm-ce:19.2.0 AS graalvm
+FROM klakegg/graalvm-native AS graalvm
 
 COPY graal /src
 COPY --from=saxon /saxon.jar /src/saxon.jar

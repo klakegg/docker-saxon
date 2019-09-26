@@ -1,12 +1,10 @@
-sudo: required
-
 language: bash
 
 services:
   - docker
 
 script:
-  - sh build.sh
+  - make
   - docker run --rm -it saxon:default xslt || true
   - docker run --rm -it saxon:default xquery || true
   - docker run --rm -it saxon:graal xslt || true

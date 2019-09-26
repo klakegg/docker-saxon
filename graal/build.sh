@@ -20,9 +20,6 @@ jar \
   -C /target/build \
   Main.class
 
-# Fetch native-image
-gu install native-image
-
 # Create native image
 native-image \
   --static \
