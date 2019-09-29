@@ -1,4 +1,4 @@
-build: build-base build-he build-graal
+build: build-base build-he build-he-graal
 
 build-base:
 	@docker build -f Dockerfile -t saxon:base .
@@ -6,8 +6,10 @@ build-base:
 build-he:
 	@docker build -f Dockerfile-he -t saxon:he .
 
-build-graal:
-	@docker build -f Dockerfile-graal -t saxon:graal .
+build-he-graal:
+	@docker build -f Dockerfile-he-graal -t saxon:he-graal .
+
+tag: tag-base tag-he tag-he-graal
 
 tag-base:
 	@docker tag saxon:base klakegg/saxon:dev-base
@@ -15,5 +17,5 @@ tag-base:
 tag-he:
 	@docker tag saxon:he klakegg/saxon:dev-he
 
-tag-graal:
-	@docker tag saxon:graal klakegg/saxon:dev-graal
+tag-he-graal:
+	@docker tag saxon:he-graal klakegg/saxon:dev-he-graal

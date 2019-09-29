@@ -5,6 +5,6 @@ services:
 
 script:
   - make
-  - docker run --rm -it saxon:default xslt || true
-  - docker run --rm -it saxon:default xquery || true
-  - docker run --rm -it saxon:graal xslt || true
+  - docker run --rm -it saxon:he xslt || true
+  - docker run --rm -it saxon:he xquery || true
+  - docker run --rm -it saxon:he-graal xslt || true

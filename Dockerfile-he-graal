@@ -3,7 +3,7 @@ FROM saxon:base AS base
 
 FROM alpine:3.10
 
-COPY --from=base /graal /
+COPY --from=base /he-graal /
 
 VOLUME /src /target
 

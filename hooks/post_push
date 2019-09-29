@@ -8,8 +8,8 @@ fi
 
 docker tag $DOCKER_REPO:$VERSION-base saxon:base
 
-docker build -t $DOCKER_REPO:$VERSION-graal -f Dockerfile-graal .
-docker push $DOCKER_REPO:$VERSION-graal
+docker build -t $DOCKER_REPO:$VERSION-he-graal -f Dockerfile-he-graal .
+docker push $DOCKER_REPO:$VERSION-he-graal
 
 docker build -t $DOCKER_REPO:$VERSION-he -f Dockerfile-he .
 docker push $DOCKER_REPO:$VERSION-he
@@ -24,11 +24,11 @@ if [ $SOURCE_BRANCH != "master" ]; then
   docker tag $DOCKER_REPO:$VERSION-base $DOCKER_REPO:base
   docker push $DOCKER_REPO:base
 
-  docker tag $DOCKER_REPO:$VERSION-graal $DOCKER_REPO:latest-graal
-  docker push $DOCKER_REPO:latest-graal
+  docker tag $DOCKER_REPO:$VERSION-he-graal $DOCKER_REPO:latest-he-graal
+  docker push $DOCKER_REPO:latest-he-graal
 
-  docker tag $DOCKER_REPO:$VERSION-graal $DOCKER_REPO:graal
-  docker push $DOCKER_REPO:graal
+  docker tag $DOCKER_REPO:$VERSION-he-graal $DOCKER_REPO:he-graal
+  docker push $DOCKER_REPO:he-graal
 
   docker tag $DOCKER_REPO:$VERSION-he $DOCKER_REPO:latest-he
   docker push $DOCKER_REPO:latest-he
