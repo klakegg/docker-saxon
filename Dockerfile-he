@@ -3,6 +3,8 @@ FROM saxon:base AS base
 
 FROM openjdk:8u212-jre-alpine3.9
 
+ENV SAXON_HOME /usr/share/java/saxon
+
 COPY --from=base /he /
 
 VOLUME /src /target
