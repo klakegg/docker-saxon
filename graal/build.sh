@@ -30,4 +30,5 @@ native-image \
   -H:Name=/target/bin/saxon \
   -H:+ReportExceptionStackTraces \
   -H:ReflectionConfigurationFiles=/src/Saxon-HE.json \
-  -H:IncludeResources=META-INF/services/*.*
+  -H:ResourceConfigurationFiles=/src/Saxon-HE-res.json \
+  -H:Log=registerResource:

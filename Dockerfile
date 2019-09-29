@@ -1,6 +1,6 @@
 FROM alpine:3.10 AS saxon
 
-ARG saxon_ver=9.9.1-4
+ARG saxon_ver=9.9.1-5
 #ARG saxon_ver=9.8.0-15
 
 ADD \
