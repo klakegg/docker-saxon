@@ -1,0 +1,20 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build `base` image
+      run: make build-base
+
+    - name: Build `he` image
+      run: make build-he
+
+    - name: Build `he-graal` image
+      run: make build-he-graal
