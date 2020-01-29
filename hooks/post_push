@@ -1,51 +1,57 @@
 #!/bin/bash
 
 if [ $SOURCE_BRANCH = "master" ]; then
-  VERSION="dev"
+  VERSION="edge"
 else
   VERSION="$SOURCE_BRANCH"
 fi
 
+# base
 docker tag $DOCKER_REPO:$VERSION-base saxon:base
 
+# ee
 docker build -t $DOCKER_REPO:$VERSION-ee -f Dockerfile-ee .
 docker push $DOCKER_REPO:$VERSION-ee
 
-docker build -t $DOCKER_REPO:$VERSION-he-graal -f Dockerfile-he-graal .
-docker push $DOCKER_REPO:$VERSION-he-graal
-
+# he
 docker build -t $DOCKER_REPO:$VERSION-he -f Dockerfile-he .
 docker push $DOCKER_REPO:$VERSION-he
 
 docker tag $DOCKER_REPO:$VERSION-he $DOCKER_REPO:$VERSION
 docker push $DOCKER_REPO:$VERSION
 
+# he-graal
+docker build -t $DOCKER_REPO:$VERSION-he-graal -f Dockerfile-he-graal .
+docker push $DOCKER_REPO:$VERSION-he-graal
+
+# pe
 docker build -t $DOCKER_REPO:$VERSION-pe -f Dockerfile-pe .
 docker push $DOCKER_REPO:$VERSION-pe
 
-if [ $SOURCE_BRANCH != "master" ]; then
-  docker tag $DOCKER_REPO:$VERSION-base $DOCKER_REPO:latest-base
-  docker push $DOCKER_REPO:latest-base
 
+if [ $SOURCE_BRANCH != "master" ]; then
+
+  # base
   docker tag $DOCKER_REPO:$VERSION-base $DOCKER_REPO:base
   docker push $DOCKER_REPO:base
 
-  docker tag $DOCKER_REPO:$VERSION-ee $DOCKER_REPO:latest-ee
-  docker push $DOCKER_REPO:latest-ee
-
-  docker tag $DOCKER_REPO:$VERSION-he-graal $DOCKER_REPO:latest-he-graal
-  docker push $DOCKER_REPO:latest-he-graal
-
-  docker tag $DOCKER_REPO:$VERSION-he-graal $DOCKER_REPO:he-graal
-  docker push $DOCKER_REPO:he-graal
-
-  docker tag $DOCKER_REPO:$VERSION-he $DOCKER_REPO:latest-he
-  docker push $DOCKER_REPO:latest-he
+  # he
+  docker tag $DOCKER_REPO:$VERSION-he $DOCKER_REPO:he
+  docker push $DOCKER_REPO:he
 
   docker tag $DOCKER_REPO:$VERSION-he $DOCKER_REPO:latest
   docker push $DOCKER_REPO:latest
 
-  docker tag $DOCKER_REPO:$VERSION-pe $DOCKER_REPO:latest-pe
-  docker push $DOCKER_REPO:latest-pe
+  # ee
+  docker tag $DOCKER_REPO:$VERSION-ee $DOCKER_REPO:ee
+  docker push $DOCKER_REPO:ee
+
+  # he-graal
+  docker tag $DOCKER_REPO:$VERSION-he-graal $DOCKER_REPO:he-graal
+  docker push $DOCKER_REPO:he-graal
+
+  # pe
+  docker tag $DOCKER_REPO:$VERSION-pe $DOCKER_REPO:pe
+  docker push $DOCKER_REPO:pe
 
 fi
