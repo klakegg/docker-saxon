@@ -8,6 +8,9 @@ fi
 
 docker tag $DOCKER_REPO:$VERSION-base saxon:base
 
+docker build -t $DOCKER_REPO:$VERSION-ee -f Dockerfile-ee .
+docker push $DOCKER_REPO:$VERSION-ee
+
 docker build -t $DOCKER_REPO:$VERSION-he-graal -f Dockerfile-he-graal .
 docker push $DOCKER_REPO:$VERSION-he-graal
 
@@ -17,12 +20,18 @@ docker push $DOCKER_REPO:$VERSION-he
 docker tag $DOCKER_REPO:$VERSION-he $DOCKER_REPO:$VERSION
 docker push $DOCKER_REPO:$VERSION
 
+docker build -t $DOCKER_REPO:$VERSION-pe -f Dockerfile-pe .
+docker push $DOCKER_REPO:$VERSION-pe
+
 if [ $SOURCE_BRANCH != "master" ]; then
   docker tag $DOCKER_REPO:$VERSION-base $DOCKER_REPO:latest-base
   docker push $DOCKER_REPO:latest-base
 
   docker tag $DOCKER_REPO:$VERSION-base $DOCKER_REPO:base
   docker push $DOCKER_REPO:base
+
+  docker tag $DOCKER_REPO:$VERSION-ee $DOCKER_REPO:latest-ee
+  docker push $DOCKER_REPO:latest-ee
 
   docker tag $DOCKER_REPO:$VERSION-he-graal $DOCKER_REPO:latest-he-graal
   docker push $DOCKER_REPO:latest-he-graal
@@ -35,4 +44,8 @@ if [ $SOURCE_BRANCH != "master" ]; then
 
   docker tag $DOCKER_REPO:$VERSION-he $DOCKER_REPO:latest
   docker push $DOCKER_REPO:latest
+
+  docker tag $DOCKER_REPO:$VERSION-pe $DOCKER_REPO:latest-pe
+  docker push $DOCKER_REPO:latest-pe
+
 fi

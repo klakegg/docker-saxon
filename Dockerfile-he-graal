@@ -1,7 +1,7 @@
 FROM saxon:base AS base
 
 
-FROM alpine:3.10
+FROM alpine:3.11
 
 COPY --from=base /he-graal /
 

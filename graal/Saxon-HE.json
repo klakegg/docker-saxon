@@ -2263,6 +2263,16 @@
     "allPublicMethods" : true
   },
   {
+    "name" : "net.sf.saxon.ma.json.JsonToXMLFn",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ],
+    "allDeclaredConstructors" : true,
+    "allPublicConstructors" : true,
+    "allDeclaredMethods" : true,
+    "allPublicMethods" : true
+  },
+  {
     "name" : "net.sf.saxon.ma.json.XMLToJsonFn",
     "methods": [
       { "name": "<init>", "parameterTypes": [] }
