@@ -14,8 +14,8 @@ ADD \
   /saxon-ee.zip
 
 RUN apk add --no-cache unzip \
- && unzip /saxon-pe.zip -d /saxon-pe \
- && unzip /saxon-ee.zip -d /saxon-ee
+ && unzip -q /saxon-pe.zip -d /saxon-pe \
+ && unzip -q /saxon-ee.zip -d /saxon-ee
 
 
 FROM klakegg/graalvm-native:20.0.0 AS he-graalvm
