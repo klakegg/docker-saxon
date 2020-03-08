@@ -2,4 +2,4 @@
 
 cp="$SAXON_HOME/saxon9ee.jar"
 
-java ${JAVA_OPTS:-} -classpath $cp "$@"
+exec java ${JAVA_OPTS:-} -classpath $cp "$@"

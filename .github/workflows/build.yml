@@ -13,8 +13,14 @@ jobs:
     - name: Build `base` image
       run: make build-base
 
+    - name: Build `ee` image
+      run: make build-ee
+
     - name: Build `he` image
       run: make build-he
 
     - name: Build `he-graal` image
       run: make build-he-graal
+
+    - name: Build `pe` image
+      run: make build-pe

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# https://www.saxonica.com/html/documentation/using-xsl/compiling.html
+
+if [ ! $1 ]; then
+    echo "Usage: $(basename $0) [stylesheet file] [target] [export file]"
+    exit 1
+fi
+
+exec saxon net.sf.saxon.Transform \
+    -relocate:on \
+    -xsl:${1} \
+    -target:${2:-EE} \
+    -export:${3:-${1}.sef} \
+    -nogo
+
