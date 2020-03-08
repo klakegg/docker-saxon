@@ -1,7 +1,7 @@
 FROM alpine:3.11 AS saxon
 
-ARG saxon_ver=9.9.1-6
-ARG saxon_ver2=9-9-1-6
+ARG saxon_ver=9.9.1-7
+ARG saxon_ver2=9-9-1-7
 
 ADD \
   https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/${saxon_ver}/Saxon-HE-${saxon_ver}.jar \
@@ -18,7 +18,7 @@ RUN apk add --no-cache unzip \
  && unzip /saxon-ee.zip -d /saxon-ee
 
 
-FROM klakegg/graalvm-native AS he-graalvm
+FROM klakegg/graalvm-native:20.0.0 AS he-graalvm
 
 COPY graal /src
 COPY --from=saxon /saxon.jar /src/saxon.jar

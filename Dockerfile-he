@@ -1,7 +1,7 @@
 FROM saxon:base AS base
 
 
-FROM openjdk:8u212-jre-alpine3.9
+FROM adoptopenjdk/openjdk8:jre8u242-b08-alpine
 
 ENV SAXON_HOME /usr/share/java/saxon
 
